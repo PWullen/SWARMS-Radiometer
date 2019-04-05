@@ -9,14 +9,16 @@ import time
 
 # configure the serial connections (the parameters differs on the device you are connecting to)
 ser = serial.Serial(
-	port='/dev/ttyUSB1',
+	port='/dev/ttyUSB1', #port will change but as of yet to be known
 	baudrate=1200,
 	parity=serial.PARITY_NONE,
 	stopbits=serial.STOPBITS_ONE,
 	bytesize=serial.EIGHTBITS
 )
 
-ser.open()
+ser.xonxoff = false #disable software flow control
+ser.rtscts = false #disable harware (RTS/CTS) flow control
+ser.dsrdtr = false #disable hardware (DSR/DTR) flow control 
 ser.isOpen()
 
 print 'Enter your commands below.\r\nInsert "exit" to leave the application.'
@@ -24,7 +26,7 @@ print 'Enter your commands below.\r\nInsert "exit" to leave the application.'
 input=1
 while 1 :
 	# get keyboard input
-	input = input(">> ")
+	input = input(">> ") 
         # Python 3 users
         # input = input(">> ")
 	if input == 'exit':
