@@ -23,12 +23,10 @@ ser.isOpen()
 
 print 'Enter your commands below.\r\nInsert "exit" to leave the application.'
 
-input=1
+input=1  #for example comms talk to other pi
 while 1 :
 	# get keyboard input
-	input = input(">> ") 
-        # Python 3 users
-        # input = input(">> ")
+	input = input(">> ")  #can change input to reflect anything with " "
 	if input == 'exit':
 		ser.close()
 		exit()
@@ -44,3 +42,4 @@ while 1 :
 			
 		if out != '':
 			print ">>" + out
+#during flight will need two 2 inputs
