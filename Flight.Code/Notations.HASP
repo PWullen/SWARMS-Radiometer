@@ -35,13 +35,32 @@ print(nanoDif)
 FOURTH
 '''
 #Record size
-#no clue yet here
-
+import os
+sum(os.path.getsize(f) for f in os.listdir('.') if os.path.isfile(f))
+#print sum(...)
 '''
 FIFTH
 '''
 #Least significant 8 bits of the record checksum
-#no clue yet here
+# returns total as checksum
+# input - string
+def checksum(str):
+    return reduce(operator.add, map(ord, str))
+
+# returns total mod 256 as checksum
+# input - string
+def checksum256(str):
+    return reduce(operator, map(ord, str)) % 256
+
+# totals a list of numbers
+# input - list or tuple of numbers
+def totalList(list):
+    return reduce(operator.add, list)
+
+# returns the average of a list of numbers
+# input - list or tuple of numbers
+def averageList(list):
+    return reduce(operator.add, list) / len(list)
 
 '''
 SIXTH
