@@ -1,0 +1,50 @@
+# following suggested data format -- 
+'''
+FIRST 
+'''
+#record type indicator (1 byte)
+from recordtype import recordtype
+
+Payload = recordtype('Payload', 'Instrument')
+Payload1 = Payload("SWARMS', 'Thermistor')
+Payload2 = Payload("SWARMS', 'Temp_Probe_1')
+Payload3 = Payload("SWARMS', 'Temp_Probe_2')
+Payload4 = Payload("SWARMS', 'Opto_Interrupter')
+Payload5 = Payload("SWARMS', 'Pi_Camera')
+Payload6 = Payload("SWARMS', 'Radiometer')
+Payload7 = Payload("SWARMS', 'Linear_Regulator')
+
+#example print(Payload1)
+'''
+SECOND
+'''
+#Timestamp (seconds since January 1, 1970)
+import time
+int(time.time()) #seconds since the epoch
+#print(int(time.time()))
+'''
+THIRD
+'''
+#Timestamp (nanoseconds past the last second)
+time.time_ns() # will return integer number of nanoseconds since epoch
+def nanoDif;
+    int(time.time()) * 1E9 #integer value of nanoseconds since epoch
+    int(time.time()) -= int(time.tim_ns())
+print(nanoDif)
+'''
+FOURTH
+'''
+#Record size
+#no clue yet here
+
+'''
+FIFTH
+'''
+#Least significant 8 bits of the record checksum
+#no clue yet here
+
+'''
+SIXTH
+'''
+#data
+#this will contain flight code printouts
