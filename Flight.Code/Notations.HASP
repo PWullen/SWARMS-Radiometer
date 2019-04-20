@@ -2,7 +2,7 @@
 '''
 FIRST 
 '''
-#record type indicator (1 byte)
+#record type indicator (byte 1)
 from recordtype import recordtype
 
 Payload = recordtype('Payload', 'Instrument')
@@ -18,14 +18,14 @@ Payload7 = Payload("SWARMS', 'Linear_Regulator')
 '''
 SECOND
 '''
-#Timestamp (seconds since January 1, 1970)
+#Timestamp (seconds since January 1, 1970) (byte 2-5)
 import time
 int(time.time()) #seconds since the epoch
 #print(int(time.time()))
 '''
 THIRD
 '''
-#Timestamp (nanoseconds past the last second)
+#Timestamp (nanoseconds past the last second) (byte 6-9)
 time.time_ns() # will return integer number of nanoseconds since epoch
 def nanoDif;
     int(time.time()) * 1E9 #integer value of nanoseconds since epoch
@@ -34,14 +34,14 @@ print(nanoDif)
 '''
 FOURTH
 '''
-#Record size
+#Record size (byte 10-11)
 import os
 sum(os.path.getsize(f) for f in os.listdir('.') if os.path.isfile(f))
 #print sum(...)
 '''
 FIFTH
 '''
-#Least significant 8 bits of the record checksum
+#Least significant 8 bits of the record checksum (byte 12)
 # returns total as checksum
 # input - string
 def checksum(str):
@@ -65,5 +65,5 @@ def averageList(list):
 '''
 SIXTH
 '''
-#data
+#data (byte 13-n)
 #this will contain flight code printouts
